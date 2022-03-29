@@ -1,10 +1,27 @@
 {
   "name": "lerna-wechat-notify",
   "version": "1.0.0",
+  "author": "ranhe",
+  "license": "ISC",
+  "description": "lerna 发包之后企业微信群通知",
   "bin": {
     "lerna-wechat-notify": "bin/index.js"
   },
   "dependencies": {
     "markdown-to-json": "^0.5.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/hewenguang/lerna-wechat-notify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hewenguang/lerna-wechat-notify.git"
+  },
+  "keywords": [
+    "nodejs",
+    "webhook",
+    "lerna",
+    "wechat",
+    "changelog"
+  ]
 }
