@@ -7,9 +7,9 @@ const exec = promisify(childProcess.exec);
 
 module.exports = async () => {
   const options = getConfig();
-  const tagResult = await exec('git tag --contains $(git rev-list --tags --max-count=1)');
+  const { stdout } = await exec('git tag --contains $(git rev-list --tags --max-count=1)');
   const info = [];
-  const outs = tagResult.stdout.split(/\n+/);
+  const outs = stdout.split(/\n+/);
   // eslint-disable-next-line no-restricted-syntax
   for (const out of outs) {
     if (out.length > 0) {
@@ -32,6 +32,5 @@ module.exports = async () => {
     out.changeLog,
     `详细日志 👉🏻 ${out.changeLogUrl}\n`,
   ].join('\n'));
-  releases.push(`使用 \`yarn add ${info.map(out => out.info).join(' ')} -D\` 更新最新版本哦 😬`);
   return releases.join('\n');
 };
