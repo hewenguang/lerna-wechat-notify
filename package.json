@@ -1,0 +1,10 @@
+{
+  "name": "lerna-wechat-notify",
+  "version": "1.0.0",
+  "bin": {
+    "lerna-wechat-notify": "bin/index.js"
+  },
+  "dependencies": {
+    "markdown-to-json": "^0.5.4"
+  }
+}
