@@ -31,10 +31,10 @@ module.exports = async filePath => {
   const { CHANGELOG: { content } } = parseSafely(originChangeLog.stdout);
   const items = content.split(/\n+/);
   const start = items.findIndex(item => item.startsWith(`## [${version}]`));
-  const end = items.findIndex((item, index) => index > start && item.startsWith('##'));
+  const end = items.findIndex((item, index) => index > start && /^#+\s+\[(\d|\.)+\]/.test(item));
   if (start < 0 || end < 0) {
     return '';
   }
   const changelog = items.slice(start + 1, end);
-  return changelog.join('/n');
+  return changelog.join('\n');
 };

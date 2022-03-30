@@ -17,8 +17,8 @@ yarn add lerna-wechat-notify -D
 ```json
 {
   // 用来生成通知消息
-  "wechat-notify": {
-    "url": "https://github.com/stylelint/{name}/blob/main/CHANGELOG.md", // {name} 会自动替换成对应的包名
+  "work-wechat": {
+    "changeLogUrl": "https://github.com/stylelint/{name}/blob/main/CHANGELOG.md", // {name} 会自动替换成对应的包名
     "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e0f79397-04fd-460a-a3c2-7cd9e9940a7a" // 机器人 webhook 地址
   }
 }

@@ -18,8 +18,8 @@ module.exports = async () => {
         name,
         version,
         info: out,
-        changeLogUrl: options.url.replace('{name}', name),
         changeLog: await getChangLogByPath(`packages/${name}`),
+        changeLogUrl: options.changeLogUrl.replace('{name}', name),
       });
     }
   }
@@ -27,10 +27,14 @@ module.exports = async () => {
     return '';
   }
   const releases = info.map(out => [
-    `${out.info} 发布啦 ~`,
-    `更新日志如下：`,
+    `# <font color="info">${out.info} 发布啦 ~</font>`,
+    '   ',
+    `更新日志如下`,
+    ' ',
     out.changeLog,
-    `详细日志 👉🏻 ${out.changeLogUrl}\n`,
+    '   ',
+    `详细 👉🏻 [更新日志](${out.changeLogUrl})`,
+    '   ',
   ].join('\n'));
   return releases.join('\n');
 };

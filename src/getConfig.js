@@ -4,9 +4,9 @@ module.exports = () => {
   if (!lerna) {
     throw new Error('`lerna.json` 未找到');
   }
-  const options = lerna['wechat-notify'];
-  if (!options || !options.webhook || !options.url) {
-    throw new Error('`lerna.json` 缺失 `wechat-notify` 字段');
+  const options = lerna['work-wechat'];
+  if (!options || !options.webhook || !options.changeLogUrl) {
+    throw new Error('`lerna.json` 缺失 `work-wechat` 字段');
   }
   return options;
 };

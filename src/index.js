@@ -14,11 +14,8 @@ module.exports = async () => {
     return;
   }
   const data = JSON.stringify({
-    msgtype: 'text',
-    text: {
-      content,
-      mentioned_mobile_list: '@all',
-    },
+    msgtype: 'markdown',
+    markdown: { content },
   });
   const response = https.request(options.webhook, {
     method: 'POST',
