@@ -27,13 +27,10 @@ module.exports = async () => {
     return '';
   }
   const releases = info.map(out => [
-    `# <font color="info">${out.info} 发布啦 ~</font>`,
-    '   ',
-    `更新日志如下`,
-    ' ',
+    `# <font color="info">${out.info}</font>`,
+    `更新日志如下：`,
     out.changeLog,
-    '   ',
-    `详细 👉🏻 [更新日志](${out.changeLogUrl})`,
+    `👉🏻 [完整日志](${out.changeLogUrl})`,
     '   ',
   ].join('\n'));
   return releases.join('\n');
