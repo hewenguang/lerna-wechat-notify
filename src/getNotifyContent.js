@@ -10,11 +10,14 @@ module.exports = async () => {
   const { stdout } = await exec('git tag --contains $(git rev-list --tags --max-count=1)');
   const info = [];
   const outs = stdout.split(/\n+/);
+
   // eslint-disable-next-line no-restricted-syntax
   for (const out of outs) {
     if (out.length > 0) {
-      const [,, name, version] = out.split(/@|\//);
-      info.push({
+      const outInfos = out.split(/@|\//);
+      const version = outInfos.pop();
+      const name = outInfos.pop();
+      name && version && info.push({
         name,
         version,
         info: out,
